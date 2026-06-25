@@ -6,59 +6,41 @@
 
   <meta charset="utf-8">
 
-  <title>管理画面</title>
-
 </head>
 
 <body>
 
-<h1>投稿状況</h1>
+<div id="result">初期化中...</div>
 
-<div id="count">
-
-  読み込み中...
-
-</div>
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
 <script>
 
 async function main() {
 
-  await liff.init({
+  try {
 
-    liffId: '2010505293-f0f3W4oz'
+    await liff.init({
 
-  });
+      liffId: '2010505293-f0f3W4oz'
 
-  const profile = await liff.getProfile();
+    });
 
-  document.body.innerHTML =
+    document.getElementById('result').innerText =
 
-    `こんにちは ${profile.displayName} さん`;
+      'LIFF初期化成功';
+
+  } catch(err) {
+
+    document.getElementById('result').innerText =
+
+      'エラー: ' + err.message;
+
+  }
 
 }
 
 main();
-
-</script>
-<script>
-
-fetch(
-
-  'https://script.google.com/macros/s/AKfycbwMhYWrqbkgAcVH0Q1G5zLSz5Ho58cHSvc2kqN2nvRXpirWNfiYF_M_04R4HVwg_vRq/exec?action=count'
-
-)
-
-.then(res => res.json())
-
-.then(data => {
-
-  document.getElementById('count').innerText =
-
-    `残件数：${data.count}`;
-
-});
 
 </script>
 
