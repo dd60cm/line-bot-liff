@@ -26,9 +26,21 @@ async function main() {
 
     });
 
+    const profile =
+
+    await liff.getProfile();
+
+    const res = await fetch(
+
+    'https://script.google.com/macros/s/AKfycbwMhYWrqbkgAcVH0Q1G5zLSz5Ho58cHSvc2kqN2nvRXpirWNfiYF_M_04R4HVwg_vRq/exec?action=count'
+
+    );
+
+    const data = await res.json();
+
     document.getElementById('result').innerText =
 
-      'LIFF初期化成功';
+    `${profile.displayName} さん\n残件数:${data.count}`;
 
   } catch(err) {
 
