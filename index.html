@@ -53,12 +53,16 @@ async function main() {
 
   } catch(err) {
 
-    document.getElementById('result').innerText =
+    console.error(err);
 
-      'エラー: ' + err.message;
+    document.getElementById("result").innerText =
 
+      err.name + "\n" +
+
+      err.message + "\n" +
+
+      JSON.stringify(err);
   }
-
 }
 
 main();
