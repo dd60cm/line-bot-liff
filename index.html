@@ -25,7 +25,7 @@ async function main() {
       liffId: '2010505293-f0f3W4oz'
 
     });
-    //////
+    /*
     const res = await fetch('https://script.google.com/macros/s/AKfycbzRX8ikWuQ6Bd1aUC4k9NLHzT0gAHTWKlAqZ3A5Y3oteMPhLRJ1GVg-taKkTWoF5xgw1w/exec', {
 
       method: "POST"
@@ -34,7 +34,7 @@ async function main() {
     const text = await res.text();
 
     console.log(text);
-    /*
+    */
 
     const accessToken = liff.getAccessToken();
 
@@ -57,21 +57,25 @@ async function main() {
       })
     });
     
-    const data = await res.json();
+    const data = await res.text();
     
-    console.log(data); */
+    console.log(data);
 
   } catch(err) {
 
     console.error(err);
 
-    document.getElementById("result").innerText =
+    document.getElementById("result").textContent =
 
-      err.name + "\n" +
+    JSON.stringify({
 
-      err.message + "\n" +
+      name: err.name,
 
-      JSON.stringify(err);
+      message: err.message,
+
+      stack: err.stack
+
+    }, null, 2);
   }
 }
 
