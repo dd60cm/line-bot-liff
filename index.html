@@ -26,21 +26,30 @@ async function main() {
 
     });
 
-    const profile =
+    const accessToken = liff.getAccessToken();
 
-    await liff.getProfile();
+    const res = await fetch('https://script.google.com/macros/s/AKfycbzRX8ikWuQ6Bd1aUC4k9NLHzT0gAHTWKlAqZ3A5Y3oteMPhLRJ1GVg-taKkTWoF5xgw1w/exec', {
 
-    const res = await fetch(
+      method: "POST",
 
-    'https://script.google.com/macros/s/AKfycbzRX8ikWuQ6Bd1aUC4k9NLHzT0gAHTWKlAqZ3A5Y3oteMPhLRJ1GVg-taKkTWoF5xgw1w/exec?action=count'
+      headers: {
 
-    );
+        "Content-Type": "application/json"
 
+      },
+
+      body: JSON.stringify({
+
+        action: "count",
+
+        accessToken: accessToken
+
+      })
+    });
+    
     const data = await res.json();
-
-    document.getElementById('result').innerText =
-
-    `${profile.displayName} さん\n残件数:${data.count}`;
+    
+    console.log(data);
 
   } catch(err) {
 
