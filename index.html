@@ -25,6 +25,16 @@ async function main() {
       liffId: '2010505293-f0f3W4oz'
 
     });
+    //////
+    const res = await fetch(GAS_URL, {
+
+      method: "POST"
+    });
+
+    const text = await res.text();
+
+    console.log(text);
+    /*
 
     const accessToken = liff.getAccessToken();
 
@@ -49,7 +59,7 @@ async function main() {
     
     const data = await res.json();
     
-    console.log(data);
+    console.log(data); */
 
   } catch(err) {
 
