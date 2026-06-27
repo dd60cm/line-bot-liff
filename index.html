@@ -59,7 +59,8 @@ async function main() {
     
     const data = await res.text();
     
-    console.log(data);
+    document.getElementById("result").textContent = data;
+
 
   } catch(err) {
 
