@@ -13,76 +13,7 @@
 <div id="result" style="font-size: 50px;">初期化中...</div>
 
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-
-<script>
-
-async function main() {
-
-  try {
-
-    await liff.init({
-
-      liffId: '2010505293-f0f3W4oz'
-
-    });
-    /*
-    const res = await fetch('https://script.google.com/macros/s/AKfycbzRX8ikWuQ6Bd1aUC4k9NLHzT0gAHTWKlAqZ3A5Y3oteMPhLRJ1GVg-taKkTWoF5xgw1w/exec', {
-
-      method: "POST"
-    });
-
-    const text = await res.text();
-
-    console.log(text);
-    */
-
-    const accessToken = liff.getAccessToken();
-
-    const res = await fetch('https://script.google.com/macros/s/AKfycbzRX8ikWuQ6Bd1aUC4k9NLHzT0gAHTWKlAqZ3A5Y3oteMPhLRJ1GVg-taKkTWoF5xgw1w/exec', {
-
-      method: "POST",
-
-      headers: {
-
-        "Content-Type": "text/plain" // "application/json" プリフライトリクエストを回避
-
-      },
-
-      body: JSON.stringify({
-
-        action: "count",
-
-        accessToken: accessToken
-
-      })
-    });
-    
-    const data = await res.text();
-    
-    document.getElementById("result").textContent = data;
-
-
-  } catch(err) {
-
-    console.error(err);
-
-    document.getElementById("result").textContent =
-
-    JSON.stringify({
-
-      name: err.name,
-
-      message: err.message,
-
-      stack: err.stack
-
-    }, null, 2);
-  }
-}
-
-main();
-
-</script>
+<script src="app.js"></script>
 
 </body>
 
