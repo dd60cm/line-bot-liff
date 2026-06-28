@@ -1,12 +1,3 @@
-async function init() {
-    
-    await liff.init({
-
-      liffId: '2010505293-f0f3W4oz'
-
-    });
-}
-
 async function main() {
 
   try {
@@ -22,6 +13,11 @@ async function main() {
     } else {
 
         console.log('LIFFモード');
+
+        await liff.init({
+
+            liffId: '2010505293-f0f3W4oz'
+        });
 
         accessToken = liff.getAccessToken();
     }
@@ -88,8 +84,6 @@ if (!liff.isInClient()) {
 
 
 } else {
-
-  init();
 
   main();
 
