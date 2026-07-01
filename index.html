@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 
-<html>
-
+<html lang="ja">
 <head>
-
-  <meta charset="utf-8">
-
+  <meta charset="UTF-8">
+  <title>FullCalendar</title>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    #calendar { max-width: 900px; margin: 0 auto; }
+  </style>
 </head>
-
 <body>
 
-<div id="result" style="font-size: 50px;">初期化中...</div>
+  <!--<div id="result" style="font-size: 50px;">初期化中...</div>-->
+  <div id="calendar"></div>
 
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script src="app.js"></script>
